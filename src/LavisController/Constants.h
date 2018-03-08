@@ -10,6 +10,8 @@
 #include <ConstantVariable.h>
 #include <AudioController.h>
 
+#include <PowerSwitchController.h>
+
 
 namespace lavis_controller
 {
@@ -26,6 +28,8 @@ extern ConstantString device_name;
 extern ConstantString firmware_name;
 extern const modular_server::FirmwareInfo firmware_info;
 
+extern const size_t air_puffer_channel;
+
 // Interrupts
 
 // Units
@@ -34,8 +38,14 @@ extern const modular_server::FirmwareInfo firmware_info;
 // Property values must be long, double, bool, long[], double[], bool[], char[], ConstantString *, (ConstantString *)[]
 
 // Parameters
+extern ConstantString on_off_state_parameter_name;
+enum{ON_OFF_STATE_SUBSET_LENGTH=2};
+extern ConstantString on_off_state_on;
+extern ConstantString on_off_state_off;
+extern modular_server::SubsetMemberType on_off_state_subset[ON_OFF_STATE_SUBSET_LENGTH];
 
 // Functions
+extern ConstantString set_air_puffer_function_name;
 
 // Callbacks
 

@@ -15,6 +15,7 @@
 #include <Watchdog.h>
 
 #include <ModularClient.h>
+#include <PowerSwitchController.h>
 
 #include <ModularServer.h>
 #include <ModularDeviceBase.h>

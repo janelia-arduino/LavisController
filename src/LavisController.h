@@ -24,6 +24,7 @@
 #include <Watchdog.h>
 
 #include <ModularClient.h>
+#include <PowerSwitchController.h>
 
 #include <ModularServer.h>
 #include <ModularDeviceBase.h>
@@ -38,13 +39,18 @@ public:
   LavisController();
   virtual void setup();
 
+  void setAirPuffer(ConstantString * const on_off_state_ptr);
+
 private:
   modular_server::Property properties_[lavis_controller::constants::PROPERTY_COUNT_MAX];
   modular_server::Parameter parameters_[lavis_controller::constants::PARAMETER_COUNT_MAX];
   modular_server::Function functions_[lavis_controller::constants::FUNCTION_COUNT_MAX];
   modular_server::Callback callbacks_[lavis_controller::constants::CALLBACK_COUNT_MAX];
 
+  ModularClient * power_switch_controller_ptr_;
+
   // Handlers
+  void setAirPufferHandler();
 
 };
 

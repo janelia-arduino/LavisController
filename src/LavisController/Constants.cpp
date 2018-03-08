@@ -24,6 +24,8 @@ const modular_server::FirmwareInfo firmware_info =
   .version_patch=0,
 };
 
+const size_t air_puffer_channel = 0;
+
 // Interrupts
 
 // Units
@@ -31,8 +33,17 @@ const modular_server::FirmwareInfo firmware_info =
 // Properties
 
 // Parameters
+CONSTANT_STRING(on_off_state_parameter_name,"on_off_state");
+CONSTANT_STRING(on_off_state_on,"ON");
+CONSTANT_STRING(on_off_state_off,"OFF");
+modular_server::SubsetMemberType on_off_state_subset[ON_OFF_STATE_SUBSET_LENGTH] =
+  {
+    {.cs_ptr=&on_off_state_on},
+    {.cs_ptr=&on_off_state_off},
+  };
 
 // Functions
+CONSTANT_STRING(set_air_puffer_function_name,"setAirPuffer");
 
 // Callbacks
 
