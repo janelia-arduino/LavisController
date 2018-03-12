@@ -26,6 +26,12 @@ const modular_server::FirmwareInfo firmware_info =
 
 const size_t air_puffer_channel = 0;
 
+// Clients
+const size_t power_switch_controller_address[1] =
+  {
+   3,
+  };
+
 // Interrupts
 
 // Units
@@ -43,6 +49,7 @@ modular_server::SubsetMemberType on_off_state_subset[ON_OFF_STATE_SUBSET_LENGTH]
   };
 
 // Functions
+CONSTANT_STRING(set_client_property_values_function_name,"setClientPropertyValues");
 CONSTANT_STRING(set_air_puffer_function_name,"setAirPuffer");
 
 // Callbacks

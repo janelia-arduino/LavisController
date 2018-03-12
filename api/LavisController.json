@@ -1,0 +1,29 @@
+{
+  "id": "getApi",
+  "result": {
+    "firmware": [
+      "LavisController"
+    ],
+    "verbosity": "GENERAL",
+    "functions": [
+      {
+        "name": "setClientPropertyValues",
+        "result_info": {
+          "type": "object"
+        }
+      },
+      {
+        "name": "setAirPuffer",
+        "parameters": [
+          "on_off_state"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "on_off_state",
+        "type": "string"
+      }
+    ]
+  }
+}

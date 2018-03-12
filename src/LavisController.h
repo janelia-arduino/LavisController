@@ -39,7 +39,7 @@ public:
   LavisController();
   virtual void setup();
 
-  void setAirPuffer(ConstantString * const on_off_state_ptr);
+  void setAirPuffer(const ConstantString * const on_off_state_ptr);
 
 private:
   modular_server::Property properties_[lavis_controller::constants::PROPERTY_COUNT_MAX];
@@ -50,6 +50,7 @@ private:
   ModularClient * power_switch_controller_ptr_;
 
   // Handlers
+  void setClientPropertyValuesHandler();
   void setAirPufferHandler();
 
 };

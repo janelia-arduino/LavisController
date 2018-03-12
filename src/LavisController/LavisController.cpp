@@ -49,6 +49,10 @@ void LavisController::setup()
   on_off_state_parameter.setSubset(constants::on_off_state_subset);
 
   // Functions
+  modular_server::Function & set_client_property_values_function = modular_server_.createFunction(constants::set_client_property_values_function_name);
+  set_client_property_values_function.attachFunctor(makeFunctor((Functor0 *)0,*this,&LavisController::setClientPropertyValuesHandler));
+  set_client_property_values_function.setResultTypeObject();
+
   modular_server::Function & set_air_puffer_function = modular_server_.createFunction(constants::set_air_puffer_function_name);
   set_air_puffer_function.attachFunctor(makeFunctor((Functor0 *)0,*this,&LavisController::setAirPufferHandler));
   set_air_puffer_function.addParameter(on_off_state_parameter);
@@ -56,7 +60,7 @@ void LavisController::setup()
   // Callbacks
 }
 
-void LavisController::setAirPuffer(ConstantString * const on_off_state_ptr)
+void LavisController::setAirPuffer(const ConstantString * const on_off_state_ptr)
 {
   if (on_off_state_ptr == &constants::on_off_state_on)
   {
@@ -88,10 +92,29 @@ void LavisController::setAirPuffer(ConstantString * const on_off_state_ptr)
 // modular_server_.property(property_name).getElementValue(element_index,value) value type must match the property array element default type
 // modular_server_.property(property_name).setElementValue(element_index,value) value type must match the property array element default type
 
+void LavisController::setClientPropertyValuesHandler()
+{
+  modular_server_.response().writeResultKey();
+
+  modular_server_.response().beginObject();
+
+  bool call_was_successful;
+
+  modular_server_.response().writeKey(power_switch_controller::constants::device_name);
+  modular_server_.response().beginArray();
+  power_switch_controller_ptr_->call(modular_server::constants::set_properties_to_defaults_function_name,
+                                     modular_server::constants::all_array);
+  call_was_successful = power_switch_controller_ptr_->callWasSuccessful();
+  modular_server_.response().write(call_was_successful);
+  modular_server_.response().endArray();
+
+  modular_server_.response().endObject();
+}
+
 void LavisController::setAirPufferHandler()
 {
-  const char * on_off_state_str;
-  modular_server_.parameter(constants::on_off_state_parameter_name).getValue(on_off_state_str);
-  Serial << "on_off_state_str = " << on_off_state_str << "\n";
-  // ConstantString * on_off_state_ptr = stringToOn_Off_StatePtr(on_off_state_str);
+  const ConstantString * on_off_state_ptr;
+  modular_server_.parameter(constants::on_off_state_parameter_name).getValue(on_off_state_ptr);
+
+  setAirPuffer(on_off_state_ptr);
 }

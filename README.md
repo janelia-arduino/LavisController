@@ -18,15 +18,35 @@ License:
 
 ## Clients
 
+[PowerSwitchController](https://github.com/janelia-arduino/PowerSwitchController)
+
 ## Devices
 
 [modular_device_base](https://github.com/janelia-modular-devices/modular_device_base.git)
 
 [audio_controller](https://github.com/janelia-modular-devices/audio_controller.git)
 
+[power_switch_controller](https://github.com/janelia-modular-devices/power_switch_controller.git)
+
 ## API NAMES
 
 ```json
+{
+  "id": "getApi",
+  "result": {
+    "firmware": [
+      "LavisController"
+    ],
+    "verbosity": "NAMES",
+    "functions": [
+      "setClientPropertyValues",
+      "setAirPuffer"
+    ],
+    "parameters": [
+      "on_off_state"
+    ]
+  }
+}
 ```
 
 ## API GENERAL
