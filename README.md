@@ -2,11 +2,11 @@
 
 Authors:
 
-    Peter Polidoro <polidorop@janelia.hhmi.org>
+Peter Polidoro <polidorop@janelia.hhmi.org>
 
 License:
 
-    BSD
+BSD
 
 ## Ancestors
 
