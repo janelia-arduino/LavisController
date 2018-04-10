@@ -33,7 +33,7 @@ extern const size_t air_puffer_channel;
 // Clients
 extern const size_t power_switch_controller_address[1];
 
-// Interrupts
+// Pins
 
 // Units
 

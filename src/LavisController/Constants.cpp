@@ -28,11 +28,11 @@ const size_t air_puffer_channel = 0;
 
 // Clients
 const size_t power_switch_controller_address[1] =
-  {
-   3,
-  };
+{
+  3,
+};
 
-// Interrupts
+// Pins
 
 // Units
 
@@ -43,10 +43,10 @@ CONSTANT_STRING(on_off_state_parameter_name,"on_off_state");
 CONSTANT_STRING(on_off_state_on,"ON");
 CONSTANT_STRING(on_off_state_off,"OFF");
 modular_server::SubsetMemberType on_off_state_subset[ON_OFF_STATE_SUBSET_LENGTH] =
-  {
-    {.cs_ptr=&on_off_state_on},
-    {.cs_ptr=&on_off_state_off},
-  };
+{
+  {.cs_ptr=&on_off_state_on},
+  {.cs_ptr=&on_off_state_off},
+};
 
 // Functions
 CONSTANT_STRING(set_client_property_values_function_name,"setClientPropertyValues");

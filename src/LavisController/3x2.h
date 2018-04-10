@@ -16,7 +16,7 @@ namespace lavis_controller
 {
 namespace constants
 {
-// Interrupts
+// Pins
 
 // Units
 
