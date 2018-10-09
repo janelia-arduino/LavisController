@@ -53,11 +53,11 @@
 
 * Devices
 
-  [[https://github.com/janelia-modular-devices/modular_device_base.git]]
+  [[https://github.com/janelia-modular-devices/modular_device_base]]
 
-  [[https://github.com/janelia-modular-devices/audio_controller.git]]
+  [[https://github.com/janelia-modular-devices/audio_controller]]
 
-  [[https://github.com/janelia-modular-devices/power_switch_controller.git]]
+  [[https://github.com/janelia-modular-devices/power_switch_controller]]
 
 * More Detailed Modular Device Information
 
