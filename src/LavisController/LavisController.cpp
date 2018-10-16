@@ -36,10 +36,10 @@ void LavisController::setup()
 
   // Add Firmware
   modular_server_.addFirmware(constants::firmware_info,
-                              properties_,
-                              parameters_,
-                              functions_,
-                              callbacks_);
+    properties_,
+    parameters_,
+    functions_,
+    callbacks_);
 
   // Properties
 
@@ -65,12 +65,12 @@ void LavisController::setAirPuffer(const ConstantString * const on_off_state_ptr
   if (on_off_state_ptr == &constants::on_off_state_on)
   {
     power_switch_controller_ptr_->call(power_switch_controller::constants::set_channel_on_function_name,
-                                       constants::air_puffer_channel);
+      constants::air_puffer_channel);
   }
   else
   {
     power_switch_controller_ptr_->call(power_switch_controller::constants::set_channel_off_function_name,
-                                       constants::air_puffer_channel);
+      constants::air_puffer_channel);
   }
 }
 
@@ -103,7 +103,7 @@ void LavisController::setClientPropertyValuesHandler()
   modular_server_.response().writeKey(power_switch_controller::constants::device_name);
   modular_server_.response().beginArray();
   power_switch_controller_ptr_->call(modular_server::constants::set_properties_to_defaults_function_name,
-                                     modular_server::constants::all_array);
+    modular_server::constants::all_array);
   call_was_successful = power_switch_controller_ptr_->callWasSuccessful();
   modular_server_.response().write(call_was_successful);
   modular_server_.response().endArray();
