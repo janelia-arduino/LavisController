@@ -23,7 +23,7 @@ void LavisController::setup()
   resetWatchdog();
 
   // Clients Setup
-  power_switch_controller_ptr_ = &(createClientAtAddress(constants::power_switch_controller_address));
+  power_switch_controller_ptr_ = &(createClientAtAddress(power_switch_controller::constants::device_name,constants::power_switch_controller_address));
 
   // Variable Setup
 
